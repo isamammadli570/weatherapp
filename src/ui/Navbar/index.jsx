@@ -2,22 +2,23 @@
 function Navbar({ setLocation, searchLocation, location }) {
   return (
     <div className="flex justify-between p-7">
-      <div className="cursor-pointer">
-        <h1 className="text-2xl">WeatherSite</h1>
-      </div>
-      <div>
-        <input
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
-          onKeyPress={searchLocation}
-          className="border-2"
-          type="text"
-          placeholder="Search city.."
-        />
-      </div>
-      <div>
-        <button className="border-2">Current Location</button>
-      </div>
+      <h1 className="text-2xl cursor-pointer">WeatherSite</h1>
+
+      <input
+        value={location}
+        onChange={(e) => setLocation(e.target.value)}
+        onKeyPress={searchLocation}
+        className="rounded-xl w-[400px] h-9 bg-zinc-800 text-stone-200"
+        type="text"
+        placeholder=" Search city.."
+      />
+
+      <button
+        className="bg-violet-300 text-black px-2 rounded-3xl
+       hover:bg-violet-500 duration-300"
+      >
+        Current Location
+      </button>
     </div>
   );
 }

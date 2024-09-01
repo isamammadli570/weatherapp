@@ -6,33 +6,27 @@ function Weather({ data }) {
       {data.weather ? (
         <div className="flex p-7 items-center  ">
           {/* esas hisse */}
-          <div className="flex border p-10 border-zinc-500 rounded-2xl">
-            <div>
+          <div className="p-10 bg-zinc-800 rounded-2xl">
+            <div className="flex items-center ">
               <div>
                 <p>Now</p>
-              </div>
-              <div>
                 <h1 className="text-6xl">{data.main.temp.toFixed()}°C</h1>
+                <p>{data.weather[0].description}</p>
+                <hr />
               </div>
               <div>
-                <p>{data.weather[0].description}</p>
-              </div>
-              <hr />
-              <div className="mt-4">
-                <div>
-                  <p>Wednesday 1,Dec</p>
-                </div>
-                <div className="flex">
-                  <h1>{data.name}, </h1>
-                  <p>{data.sys.country}</p>
-                </div>
+                <img
+                  src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
+                  alt=""
+                />
               </div>
             </div>
-            <div>
-              <img
-                src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
-                alt=""
-              />
+            <div className="mt-4">
+              <p>Wednesday 1,Dec</p>
+              <div className="flex">
+                <h1>{data.name}, </h1>
+                <p>{data.sys.country}</p>
+              </div>
             </div>
           </div>
 
