@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 function Navbar({ setLocation, searchLocation, location }) {
   return (
-    <div className="flex justify-around p-6">
+    <div className="flex justify-between p-7">
       <div className="cursor-pointer">
         <h1 className="text-2xl">WeatherSite</h1>
       </div>
