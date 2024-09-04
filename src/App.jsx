@@ -15,7 +15,7 @@ function App() {
         `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${apiKey}`
       );
       const data = await res.json();
-      console.log(data)
+      console.log(data);
       setData(data);
     } catch (err) {
       console.log(err);
