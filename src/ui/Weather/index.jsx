@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-
+import moment from "moment";
 import { BiWind } from "react-icons/bi";
 import {
   TbTemperature,
@@ -9,10 +9,12 @@ import {
 import { WiHumidity } from "react-icons/wi";
 
 function Weather({ data }) {
+  let date = new Date();
+  let formattedDate = moment(date).format("MMMM Do YYYY");
   return (
     <div>
       {data.weather ? (
-        <div className="flex p-7 items-center  ">
+        <div className="flex justify-evenly p-7 items-center  ">
           <div className="p-10 bg-zinc-800 rounded-2xl">
             <div className="flex items-center ">
               <div>
@@ -29,9 +31,9 @@ function Weather({ data }) {
               </div>
             </div>
             <div className="mt-4">
-              <p>Wednesday 1,Dec</p>
-              <div className="flex">
-                <h1>{data.name}, </h1>
+              <p>{formattedDate}</p>
+              <div className="flex gap-1">
+                <h1>{data.name},</h1>
                 <p>{data.sys.country}</p>
               </div>
             </div>
@@ -39,7 +41,7 @@ function Weather({ data }) {
 
           <div className="px-10">
             {data.name !== undefined ? (
-              <div className="w-[400px] h-[250px] bg-zinc-800 rounded-2xl">
+              <div className="w-[600px] h-[250px] bg-zinc-800 rounded-2xl">
                 <div className="flex justify-around items-center py-5">
                   <div className="">
                     <p className="text-2xl flex items-center">
@@ -66,8 +68,8 @@ function Weather({ data }) {
                     <p className="text-sm">Wind</p>
                   </div>
                   <div>
-                    <p className="text-2xl">{data.main.pressure} hPa</p>
-                    <p className="text-sm">Pressure</p>
+                    <p className="text-2xl">{data.wind.speed.toFixed()} KPH</p>
+                    <p className="text-sm">Wind Speed</p>
                   </div>
                 </div>
 
@@ -90,29 +92,6 @@ function Weather({ data }) {
               </div>
             ) : null}
           </div>
-
-          {/* <div>
-            {data.name !== undefined ? (
-              <div>
-                <div>
-                  <p>Feels Like</p>
-                  <p>{data.main.feels_like.toFixed()} °C</p>
-                </div>
-                <div>
-                  <p>Humidity</p>
-                  <p>{data.main.humidity.toFixed()} %</p>
-                </div>
-                <div>
-                  <p>Wind Speed</p>
-                  <p>{data.wind.speed.toFixed()} KPH</p>
-                </div>
-                <div>
-                  <p>Pressure</p>
-                  <p>{data.main.pressure} hPa</p>
-                </div>
-              </div>
-            ) : null}
-          </div> */}
         </div>
       ) : null}
     </div>
